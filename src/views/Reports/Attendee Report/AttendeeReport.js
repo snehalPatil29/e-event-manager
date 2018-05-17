@@ -34,13 +34,17 @@ class AttendeeReport extends Component {
             thisRef.setState({
                 userProfiles : updatedProfiles
            });
+        })
+        .catch( err =>{
+            console.log("Error", err)
         });
     }
 
     getAttendees () {
         let thisRef = this;
         DBUtil.getDocRef("Attendee")
-        .get().then((snapshot) => {
+        .get()
+        .then((snapshot) => {
             let updatedAttendeeList = [...thisRef.state.attendeeList];
             snapshot.forEach(doc => {
                 updatedAttendeeList.push({profiles : doc.data().profileServices[0] , name : doc.data().fullName});
@@ -49,7 +53,10 @@ class AttendeeReport extends Component {
                 attendeeList : updatedAttendeeList
             });
             thisRef.getCounts();
-        });
+        })
+        .catch( err =>{
+            console.log("Error", err)
+        });;
     }
 
     getCounts () {
