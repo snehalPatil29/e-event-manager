@@ -35,8 +35,8 @@ class AttendeeReport extends Component {
                 userProfiles : updatedProfiles
            });
         })
-        .catch( err =>{
-            console.log("Error", err)
+        .catch((err) =>{
+            console.log("Error", err);
         });
     }
 
@@ -54,9 +54,9 @@ class AttendeeReport extends Component {
             });
             thisRef.getCounts();
         })
-        .catch( err =>{
-            console.log("Error", err)
-        });;
+        .catch((err) =>{
+            console.log("Error", err);
+        });
     }
 
     getCounts () {
